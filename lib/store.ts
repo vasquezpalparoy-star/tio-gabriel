@@ -9,5 +9,5 @@ export const statuses=['Recebido','Em análise','Aguardando aprovação','Em pro
 export const money=(v:number)=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v);
 export const date=(v:string)=>new Date(v).toLocaleString('pt-BR');
 export function uuid(){const b=new Uint8Array(16);crypto.getRandomValues(b);b[6]=(b[6]&15)|64;b[8]=(b[8]&63)|128;const h=Array.from(b,x=>x.toString(16).padStart(2,'0')).join('');return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;}
-export const safeUrl=(v:string)=>v.startsWith('/')&&!v.startsWith('//')||/^https:\/\//i.test(v)?v:'';
+export const safeUrl=(v:string)=>{if(v.startsWith('/')&&!v.startsWith('//')){const base=import.meta.env.BASE_URL||'/';return base!=='/'&&v.startsWith('/images/')?base.replace(/\/$/,'')+v:v;}return /^https:\/\//i.test(v)?v:'';};
 export const wa=(phone:string,text:string)=>`https://wa.me/${phone.replace(/\D/g,'')}?text=${encodeURIComponent(text)}`;

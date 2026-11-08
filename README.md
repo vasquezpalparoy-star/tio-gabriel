@@ -38,7 +38,7 @@ corepack pnpm exec tsc --noEmit
 corepack pnpm build
 ```
 
-Aplicação React com Vinext/Vite. A saída é um Worker Cloudflare em `dist/server/index.js` com assets em `dist/client`. A configuração de hospedagem da versão Sites está em `.openai/hosting.json`. Este repositório guarda o código; pushes no GitHub não publicam automaticamente no Sites.
+Aplicação React com Vinext/Vite. A saída é um Worker Cloudflare em `dist/server/index.js` com assets em `dist/client`. A configuração de hospedagem da versão Sites está em `.openai/hosting.json`. O GitHub Pages usa a pasta `docs` da branch `main`. Execute `pnpm build:pages` e envie a pasta `docs` para atualizar essa publicação. A hospedagem Sites é independente.
 
 ## Supabase
 
